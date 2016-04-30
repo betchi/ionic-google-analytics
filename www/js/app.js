@@ -20,6 +20,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    if(typeof analytics !== undefined) {
+      analytics.debugMode();
+      analytics.enableUncaughtExceptionReporting(1, 2, 3);
+      analytics.startTrackerWithId("UA-XXXXXX-XX");
+      analytics.trackView("App");
+    } else {
+      console.log("Google Analytics Unavailable");
+    }
   });
 })
 
